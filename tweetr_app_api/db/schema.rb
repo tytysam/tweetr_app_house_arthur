@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2021_01_16_015143) do
   enable_extension "plpgsql"
 
   create_table "tweets", force: :cascade do |t|
-    t.string "title", default: "The Lathe of Heaven"
-    t.text "content", default: "Trust fund muggle magic venmo direct trade irony park street."
-    t.string "author", default: "Menoetius"
+    t.string "title", default: "An Acceptable Time"
+    t.text "content", default: "Retro +1 try-hard occupy offal."
+    t.string "author", default: "Dione"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
