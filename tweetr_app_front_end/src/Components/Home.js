@@ -38,7 +38,7 @@ const Home = () => {
                 body: newTweet
             });
             const data = await response.json();
-            let allTweets = [...tweets, ...[data]]
+            let allTweets = [...tweets, data]
             console.log(allTweets)
             // Please test this.
             // Can't remember what post returns 
