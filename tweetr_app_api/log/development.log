@@ -996,3 +996,121 @@ Processing by TweetsController#create as */*
 Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 1806)
 
 
+Started GET "/tweets" for ::1 at 2021-01-16 12:05:48 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 19ms (Views: 6.2ms | ActiveRecord: 5.2ms | Allocations: 7470)
+
+
+Started POST "/tweets" for ::1 at 2021-01-16 12:05:59 -0500
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"", "content"=>"", "author"=>"", "tweet"=>{"title"=>"", "content"=>"", "author"=>""}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["content", ""], ["author", ""], ["created_at", "2021-01-16 17:05:59.446717"], ["updated_at", "2021-01-16 17:05:59.446717"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 8ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 2015)
+
+
+Started POST "/tweets" for ::1 at 2021-01-16 12:06:14 -0500
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"1111", "content"=>"333", "author"=>"222", "tweet"=>{"title"=>"1111", "content"=>"333", "author"=>"222"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "1111"], ["content", "333"], ["author", "222"], ["created_at", "2021-01-16 17:06:14.072666"], ["updated_at", "2021-01-16 17:06:14.072666"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1824)
+
+
+Started POST "/tweets" for ::1 at 2021-01-16 12:06:30 -0500
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"", "content"=>"", "author"=>"", "tweet"=>{"title"=>"", "content"=>"", "author"=>""}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["content", ""], ["author", ""], ["created_at", "2021-01-16 17:06:30.323061"], ["updated_at", "2021-01-16 17:06:30.323061"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 1824)
+
+
+Started GET "/tweets" for ::1 at 2021-01-16 12:11:04 -0500
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 1402)
+
+
+Started DELETE "/tweets/1" for ::1 at 2021-01-16 12:11:14 -0500
+Processing by TweetsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTweet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+Completed 204 No Content in 31ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3433)
+
+
+Started GET "/tweets/" for ::1 at 2021-01-16 12:11:21 -0500
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1288)
+
+
+Started GET "/tweets/2?title" for ::1 at 2021-01-16 12:11:47 -0500
+Processing by TweetsController#show as */*
+  Parameters: {"title"=>nil, "id"=>"2"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 623)
+
+
+Started GET "/tweets/2" for ::1 at 2021-01-16 12:12:07 -0500
+Processing by TweetsController#show as */*
+  Parameters: {"title"=>"test", "id"=>"2"}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 621)
+
+
+Started GET "/tweets/2" for ::1 at 2021-01-16 12:12:14 -0500
+Processing by TweetsController#show as */*
+  Parameters: {"tweet"=>{"title"=>"test"}, "id"=>"2"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 622)
+
+
+Started PUT "/tweets/2" for ::1 at 2021-01-16 12:12:32 -0500
+Processing by TweetsController#update as */*
+  Parameters: {"tweet"=>{"title"=>"test"}, "id"=>"2"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:26:in `update'
+  [1m[36mTweet Update (0.7ms)[0m  [1m[33mUPDATE "tweets" SET "title" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["title", "test"], ["updated_at", "2021-01-16 17:12:32.966894"], ["id", 2]]
+  ↳ app/controllers/tweets_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:26:in `update'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 2295)
+
+
+Started GET "/tweets/" for ::1 at 2021-01-16 12:13:03 -0500
+Processing by TweetsController#index as */*
+  Parameters: {"tweet"=>{"title"=>"test"}}
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 1286)
+
+
