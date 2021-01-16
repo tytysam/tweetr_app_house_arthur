@@ -7,20 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Tweet.create({
-  title: "Just found this",
-  content: "the square of the hypotenuse is equal to the sum of the squares of the other two sides",
-  author: "AW917"
+  title: Faker::Book.title,
+  content: Faker::Hipster.sentence(word_count: 4, supplemental: false, random_words_to_add: 5),
+  author: Faker::Ancient.titan
 })
 
-Tweet.create({
-  title: "I'm walkin' here",
-  content: "Hey, I'm walkin' here!",
-  author: "Xila82"
-})
+# Tweet.create({
+#   title: Faker::Book.title,
+#   content: Faker::Hipster.sentence(word_count: 4, supplemental: false, random_words_to_add: 5),
+#   author: Faker::Ancient.titan
+# })
+
+# Tweet.create({
+#   title: "I'm walkin' here",
+#   content: "Hey, I'm walkin' here!",
+#   author: "Xila82"
+# })
 
 
-Tweet.create({
-  title: "I'm walkin' here",
-  content: "Hey, I'm walkin' over  here!",
-  author: "zapfska"
-})
+# Tweet.create({
+#   title: "I'm walkin' here",
+#   content: "Hey, I'm walkin' over  here!",
+#   author: "zapfska"
+# })
