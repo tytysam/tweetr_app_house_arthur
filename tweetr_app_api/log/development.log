@@ -138,3 +138,25 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1199)
 
 
+Started DELETE "/tweets/4" for ::1 at 2021-01-15 18:33:25 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#destroy as */*
+  Parameters: {"tweet"=>{"title"=>"replace null test values", "content"=>"replace null test values", "author"=>"zapfska"}, "id"=>"4"}
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTweet Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+Completed 204 No Content in 32ms (Views: 0.1ms | ActiveRecord: 8.9ms | Allocations: 9494)
+
+
+Started GET "/tweets" for ::1 at 2021-01-15 18:33:46 -0700
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.5ms | Allocations: 1251)
+
+
