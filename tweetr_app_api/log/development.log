@@ -58,3 +58,47 @@ Processing by TweetsController#show as */*
 Completed 200 OK in 28ms (Views: 0.6ms | ActiveRecord: 9.5ms | Allocations: 7446)
 
 
+Started POST "/tweets" for ::1 at 2021-01-15 18:26:28 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/tcsamuelson/DEV/_seir/homework/week-12/tweetr_app_house_arthur/tweetr_app_api/app/controllers/tweets_controller.rb:29: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/tweets_controller.rb:29: syntax error, unexpected end-of-input, expecting end
+app/controllers/tweets_controller.rb:29: syntax error, unexpected end-of-input, expecting end
+Started POST "/tweets" for ::1 at 2021-01-15 18:27:09 -0700
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#create as */*
+  Parameters: {"tweets"=>{":title"=>"test title", ":content"=>"test content content content", ":author"=>"zapfska"}}
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.0ms | Allocations: 3340)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: tweet):
+  
+app/controllers/tweets_controller.rb:27:in `tweet_params'
+app/controllers/tweets_controller.rb:14:in `create'
+Started POST "/tweets" for ::1 at 2021-01-15 18:27:34 -0700
+Processing by TweetsController#create as */*
+  Parameters: {"tweet"=>{":title"=>"test title", ":content"=>"test content content content", ":author"=>"zapfska"}}
+[31mUnpermitted parameters: ::title, ::content, ::author[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-01-16 01:27:34.570583"], ["updated_at", "2021-01-16 01:27:34.570583"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 34ms (Views: 0.7ms | ActiveRecord: 9.9ms | Allocations: 5891)
+
+
+Started POST "/tweets" for ::1 at 2021-01-15 18:28:24 -0700
+Processing by TweetsController#create as */*
+  Parameters: {"tweet"=>{"title"=>"test title", "content"=>"test content content content", "author"=>"zapfska"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test title"], ["content", "test content content content"], ["author", "zapfska"], ["created_at", "2021-01-16 01:28:24.128009"], ["updated_at", "2021-01-16 01:28:24.128009"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 1833)
+
+
