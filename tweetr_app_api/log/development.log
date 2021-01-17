@@ -2387,3 +2387,134 @@ puma (5.1.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
 puma (5.1.1) lib/puma/request.rb:75:in `handle_request'
 puma (5.1.1) lib/puma/server.rb:431:in `process_client'
 puma (5.1.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (244.2ms)[0m  [1m[35mCREATE DATABASE "tweetr_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (102.2ms)[0m  [1m[35mCREATE DATABASE "tweetr_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (61.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5962800890236520400)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTweets (20210116005413)
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "title" character varying, "content" text, "author" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210116005413"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDefaultValueToColumn (20210116015143)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "tweets" ALTER COLUMN "title" SET DEFAULT 'Such, Such Were the Joys'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "tweets" ALTER COLUMN "content" SET DEFAULT 'Roof wolf selvage kogi cardigan sriracha sustainable.'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "tweets" ALTER COLUMN "author" SET DEFAULT 'Helios'[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210116015143"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (4.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-17 21:12:49.360667"], ["updated_at", "2021-01-17 21:12:49.360667"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5962800890236520400)[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Shall not Perish"], ["content", "Waistcoat cliche direct trade 3 wolf moon pug offal ennui shoreditch."], ["author", "Atlas"], ["created_at", "2021-01-17 21:12:56.089039"], ["updated_at", "2021-01-17 21:12:56.089039"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/tweets" for ::1 at 2021-01-17 15:13:57 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"weqwe", "content"=>"weqwe", "author"=>"weqw", "tweet"=>{"title"=>"weqwe", "content"=>"weqwe", "author"=>"weqw"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "weqwe"], ["content", "weqwe"], ["author", "weqw"], ["created_at", "2021-01-17 21:13:57.586176"], ["updated_at", "2021-01-17 21:13:57.586176"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 37ms (Views: 1.1ms | ActiveRecord: 9.1ms | Allocations: 9483)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:15:07 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (12.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 12.6ms | ActiveRecord: 12.4ms | Allocations: 929)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:16:12 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 65ms (Views: 63.8ms | ActiveRecord: 0.7ms | Allocations: 858)
+
+
+Started DELETE "/tweets/undefined" for ::1 at 2021-01-17 15:19:04 -0600
+Processing by TweetsController#destroy as */*
+  Parameters: {"id"=>"undefined", "tweet"=>{}}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+Completed 404 Not Found in 21ms (ActiveRecord: 0.7ms | Allocations: 2077)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tweet with 'id'=undefined):
+  
+app/controllers/tweets_controller.rb:33:in `destroy'
+Started POST "/tweets" for ::1 at 2021-01-17 15:19:13 -0600
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"aSasasa", "content"=>"asaSa", "author"=>"ADSasa", "tweet"=>{"title"=>"aSasasa", "content"=>"asaSa", "author"=>"ADSasa"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "aSasasa"], ["content", "asaSa"], ["author", "ADSasa"], ["created_at", "2021-01-17 21:19:13.885905"], ["updated_at", "2021-01-17 21:19:13.885905"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 8ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 1825)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:19:20 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 59ms (Views: 58.8ms | ActiveRecord: 0.4ms | Allocations: 951)
+
+
+Started DELETE "/tweets/undefined" for ::1 at 2021-01-17 15:19:24 -0600
+Processing by TweetsController#destroy as */*
+  Parameters: {"id"=>"undefined", "tweet"=>{}}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:33:in `destroy'
+Completed 404 Not Found in 17ms (ActiveRecord: 0.5ms | Allocations: 523)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tweet with 'id'=undefined):
+  
+app/controllers/tweets_controller.rb:33:in `destroy'
+Started POST "/tweets" for ::1 at 2021-01-17 15:19:29 -0600
+Processing by TweetsController#create as */*
+  Parameters: {"title"=>"sdasd", "content"=>"dsadas", "author"=>"sadas", "tweet"=>{"title"=>"sdasd", "content"=>"dsadas", "author"=>"sadas"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "sdasd"], ["content", "dsadas"], ["author", "sadas"], ["created_at", "2021-01-17 21:19:29.636476"], ["updated_at", "2021-01-17 21:19:29.636476"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 13ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 1807)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:19:32 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (1.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 107ms (Views: 105.2ms | ActiveRecord: 1.4ms | Allocations: 1064)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:20:31 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1064)
+
+
+Started GET "/tweets" for ::1 at 2021-01-17 15:22:38 -0600
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (1.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 1.2ms | Allocations: 1064)
+
+

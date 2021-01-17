@@ -122,9 +122,9 @@ const Home = () => {
               >
                 Delete Tweet
               </button>
-              ;
             </li>
           );
+          <br />;
         })}
       </ul>
     </>
