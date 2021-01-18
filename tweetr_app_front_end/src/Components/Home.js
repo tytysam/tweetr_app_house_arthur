@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import Aside from "./Aside.js";
+import Footer from "./Footer.js";
+import NavBar from "./NavBar.js";
 import Show from "./Show.js";
 import "../css/show.css";
 
@@ -48,6 +51,7 @@ const Home = () => {
       setAuthorInput("");
     } catch (error) {
       console.error(error);
+
     }
   };
 
@@ -67,19 +71,22 @@ const Home = () => {
       console.error(error);
     }
   };
+  
+
 
   useEffect(() => {
     getTweets();
   }, []);
   return (
     <>
+      <NavBar />
+      <Aside />
       <h2>Index</h2>
       <Show
         getTweets={getTweets}
         // the below will need to be updated with the map route
         // tweet={tweet}
       />
-
       <form onSubmit={createTweet}>
         <label htmlFor="title">Title</label>
         <input
@@ -107,26 +114,7 @@ const Home = () => {
         />
         <input type="submit" value="Tweet" className="tweet-create-button" />
       </form>
-
-      <ul className="postsUl">
-        {tweets.map((tweet) => {
-          return (
-            <li key={tweet._id} className="postsLi">
-              <h4>{tweet.title}</h4>
-              <p>{tweet.content}</p>
-              <h6>{tweet.author}</h6>
-              <button
-                onClick={(event) => {
-                  deleteTweet(tweet._id);
-                }}
-              >
-                Delete Tweet
-              </button>
-            </li>
-          );
-          <br />;
-        })}
-      </ul>
+      <Footer />
     </>
   );
 };
