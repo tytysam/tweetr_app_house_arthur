@@ -1,0 +1,17 @@
+.postsLi {
+  color: black;
+  border-radius: 5px;
+  margin: 4%;
+  list-style: none;
+  text-align: center;
+  width: 60%;
+  font-size: 25px;
+  background-color: white;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+.postsUl {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

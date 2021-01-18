@@ -3,6 +3,7 @@ import Aside from "./Aside.js";
 import Footer from "./Footer.js";
 import NavBar from "./NavBar.js";
 import Show from "./Show.js";
+import "../css/show.css";
 
 const Home = () => {
   const [tweets, setTweets] = useState([]);
@@ -21,7 +22,7 @@ const Home = () => {
     }
   };
 
-
+  // CREATE
   const createTweet = async (e, id) => {
     e.preventDefault();
     // let noteHolder = noteInput.current.value;
@@ -40,7 +41,7 @@ const Home = () => {
         body: newTweet,
       });
       const data = await response.json();
-      let allTweets = [...tweets, ...[data]];
+      let allTweets = [...tweets, data];
       console.log(allTweets);
       // Please test this.
       // Can't remember what post returns
@@ -70,6 +71,8 @@ const Home = () => {
       console.error(error);
     }
   };
+  
+
 
   useEffect(() => {
     getTweets();
