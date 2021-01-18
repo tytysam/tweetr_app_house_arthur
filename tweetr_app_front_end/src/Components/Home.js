@@ -21,7 +21,7 @@ const Home = () => {
     }
   };
 
-  // CREATE
+
   const createTweet = async (e, id) => {
     e.preventDefault();
     // let noteHolder = noteInput.current.value;
@@ -50,6 +50,7 @@ const Home = () => {
       setAuthorInput("");
     } catch (error) {
       console.error(error);
+
     }
   };
 
